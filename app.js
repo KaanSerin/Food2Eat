@@ -60,40 +60,42 @@ const getRandomRecipe = () => {
 getRandomRecipe();
 
 // Get a recipe using the value from the seach box
-getRecipeBtn.addEventListener('click', () => {
-    fetch(searchUrl + searchBox.value + '&number=1' + '&apiKey=' + apiKey).then(response => response.json()).then((data) => {
-        // Get the first recipe
-        const recipe = data.results[0];
+searchBox.addEventListener('keydown', (event) => {
+    if (event.key === "Enter") {
+        fetch(searchUrl + searchBox.value + '&number=1' + '&apiKey=' + apiKey).then(response => response.json()).then((data) => {
+            // Get the first recipe
+            const recipe = data.results[0];
 
-        // Change the title elements innerText
-        recipeName.innerText = recipe.title;
+            // Change the title elements innerText
+            recipeName.innerText = recipe.title;
 
-        // Logging the json file just in case
-        console.log(recipe);
+            // Logging the json file just in case
+            console.log(recipe);
 
-        const ingredients = [];
+            const ingredients = [];
 
-        // Fetch the information for the recipe
-        fetch(informationUrl + recipe.id + '/information' + '?includeNutrition=false' + '&apiKey=' + apiKey)
-            .then(response => response.json())
-            .then(data => {
-                recipeDescription.innerHTML = data.summary
-                data.extendedIngredients.forEach(ingredient => {
-                    ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
-                    ingredients.push(ingredient.name);
+            // Fetch the information for the recipe
+            fetch(informationUrl + recipe.id + '/information' + '?includeNutrition=false' + '&apiKey=' + apiKey)
+                .then(response => response.json())
+                .then(data => {
+                    recipeDescription.innerHTML = data.summary
+                    data.extendedIngredients.forEach(ingredient => {
+                        ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
+                        ingredients.push(ingredient.name);
+                    });
                 });
-            });
 
-        // Printing the ingredients
-        console.log(ingredients);
+            // Printing the ingredients
+            console.log(ingredients);
 
-        // Fetch the image of the recipe
-        fetch(imageUrl + recipe.id + '-556x370.jpg').then(response => response.blob())
-            .then(blob => {
-                const base64img = URL.createObjectURL(blob);
-                recipeImage.setAttribute('src', base64img);
-            })
-    });
+            // Fetch the image of the recipe
+            fetch(imageUrl + recipe.id + '-556x370.jpg').then(response => response.blob())
+                .then(blob => {
+                    const base64img = URL.createObjectURL(blob);
+                    recipeImage.setAttribute('src', base64img);
+                })
+        });
+    }
 });
 
 // Calling the random recipe method when the button is clicked

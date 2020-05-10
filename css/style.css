@@ -1,0 +1,52 @@
+body{
+    margin: 0;
+    display:grid;
+    grid-template-areas: "header header header"
+                        "main main main"
+                        "footer footer footer";
+    font-family: Arial, Helvetica, sans-serif;    
+    
+}
+header{
+    grid-area: header;
+    display: flex;
+    padding: 20px 50px;
+    background-color: rgb(255, 43, 43);
+    justify-content: flex-start;
+    align-items: center;
+}
+header *{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.Logo{
+    text-decoration: none;
+    margin-right: 200px;
+    font-size: 2rem;
+}
+
+header button{
+    border: none;
+    background-color: #fc8b83;
+    padding: 10px;
+}
+header label{
+    margin-right: 20px;
+}
+#food2eat{
+    margin-right: 5%;
+    font-size: 1rem;
+    padding: 10px 10px;
+    width: 500px;
+    color: black;
+}
+main{
+    grid-area: main;
+}
+footer{
+    grid-area: footer;
+}
+/* #getRecipe{
+    margin-right: 20px;
+} */

@@ -7,12 +7,12 @@ const recipeImage = document.getElementById('recipeImage');
 const recipeDescription = document.getElementById('recipeDescription');
 const searchBox = document.getElementById("food2eat");
 const ingredientsList = document.getElementById('ingredientsList');
+const instructionsList = document.getElementById('instructionsList');
 
 // Storing the urls and the api key to save myself the hassle of typing them again
-const apiKey = '296effd17f31451180db49db3ee62c97';
+const apiKey = '7ceff016f5a142c193ec2b409834c15b';
 const searchUrl = 'https://api.spoonacular.com/recipes/search?query=';
 const randomUrl = 'https://api.spoonacular.com/recipes/random?';
-// const summaryUrl = 'https://api.spoonacular.com/recipes/';
 const informationUrl = 'https://api.spoonacular.com/recipes/';
 const imageUrl = 'https://spoonacular.com/recipeImages/';
 
@@ -38,9 +38,22 @@ const getRandomRecipe = () => {
             .then(response => response.json())
             .then(data => {
                 recipeDescription.innerHTML = data.summary
+                ingredientsList.innerHTML = '';
                 data.extendedIngredients.forEach(ingredient => {
                     ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
                     ingredients.push(ingredient.name);
+                });
+            });
+
+        // Fetch the instructions for the recipe
+        fetch(informationUrl + recipe.id + '/analyzedInstructions' + '?apiKey=' + apiKey)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                instructionsList.innerHTML = '';
+                data[0].steps.forEach(step => {
+                    instructionsList.innerHTML += '<li>' + step.step + "</li>"
+
                 });
             });
 
@@ -78,10 +91,24 @@ searchBox.addEventListener('keydown', (event) => {
             fetch(informationUrl + recipe.id + '/information' + '?includeNutrition=false' + '&apiKey=' + apiKey)
                 .then(response => response.json())
                 .then(data => {
-                    recipeDescription.innerHTML = data.summary
+                    recipeDescription.innerHTML = data.summary;
+                    ingredientsList.innerHTML = '';
                     data.extendedIngredients.forEach(ingredient => {
                         ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
                         ingredients.push(ingredient.name);
+                    });
+                });
+
+
+            // Fetch the instructions for the recipe
+            fetch(informationUrl + recipe.id + '/analyzedInstructions' + '?apiKey=' + apiKey)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    instructionsList.innerHTML = '';
+                    data[0].steps.forEach(step => {
+                        instructionsList.innerHTML += '<li>' + step.step + "</li>"
+
                     });
                 });
 

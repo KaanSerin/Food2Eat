@@ -40,7 +40,7 @@ const getRandomRecipe = () => {
                 recipeDescription.innerHTML = data.summary
                 ingredientsList.innerHTML = '';
                 data.extendedIngredients.forEach(ingredient => {
-                    ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
+                    ingredientsList.innerHTML += '<li><img src="images/food.svg">' + ingredient.name + "</li>"
                     ingredients.push(ingredient.name);
                 });
             });
@@ -94,7 +94,7 @@ searchBox.addEventListener('keydown', (event) => {
                     recipeDescription.innerHTML = data.summary;
                     ingredientsList.innerHTML = '';
                     data.extendedIngredients.forEach(ingredient => {
-                        ingredientsList.innerHTML += '<li>' + ingredient.name + "</li>"
+                        ingredientsList.innerHTML += '<li><img src="images/food.svg">' + ingredient.name + "</li>"
                         ingredients.push(ingredient.name);
                     });
                 });

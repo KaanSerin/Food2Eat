@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Roboto:400,900&display=swap" rel="stylesheet">
+    <!-- My CSS -->
     <link rel="stylesheet" href="css/style.css">
     <title>Food2Eat</title>
 </head>
@@ -11,23 +14,24 @@
 <body>
 
     <header>
-        <a class="Logo" href="#">Food2Eat</a>
+        <a class="Logo" href="/">Food2Eat</a>
         <label for="food2Eat">Search: </label>
         <input type="text" name="" id="food2eat">
-        <!-- <button id="getRecipe">Search Food</button> -->
         <button id="randomRecipe">Random Recipe</button>
     </header>
 
     <main>
-        <h2 id="recipeName">Raspberry Ice Cream Sandwiches</h2>
         <img id="recipeImage" src="" alt="">
 
-        <p id="recipeDescription"></p>
+        <div>
+            <h2 id="recipeName"></h2>
+            <p id="recipeDescription"></p>
+        </div>
 
-        <h3>Ingredients</h3>
-        <ul id="ingredientsList">
-
-        </ul>
+        <div>
+            <h3>Ingredients</h3>
+            <ul id="ingredientsList"></ul>
+        </div>
 
     </main>
 

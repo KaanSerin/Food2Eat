@@ -4,16 +4,19 @@ body{
     grid-template-areas: "header header header"
                         "main main main"
                         "footer footer footer";
-    font-family: Arial, Helvetica, sans-serif;    
+                        
+    font-family: 'Roboto', sans-serif;
+    background: rgb(238, 62, 62);
     
 }
 header{
     grid-area: header;
     display: flex;
-    padding: 20px 50px;
-    background-color: rgb(255, 43, 43);
+    padding: 10px 50px;
+    background-color: rgb(180, 37, 37);
     justify-content: flex-start;
     align-items: center;
+    -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, 0.479);
 }
 header *{
     font-size: 1.5rem;
@@ -23,12 +26,14 @@ header *{
 .Logo{
     text-decoration: none;
     margin-right: 200px;
-    font-size: 2rem;
+    font-size: 2.3rem;
+    font-family: 'Pacifico', cursive;
 }
 
 header button{
     border: none;
-    background-color: #fc8b83;
+    background-color: rgb(238, 62, 62);
+    cursor: pointer;
     padding: 10px;
 }
 header label{
@@ -42,11 +47,19 @@ header label{
     color: black;
 }
 main{
+    background-color: white;
     grid-area: main;
+    display: grid;
+    border-radius: 1.2%;
+    margin: 25px 65px;
+    padding: 15px 15px;
+    grid-template-columns: 1fr 1fr;
 }
 footer{
     grid-area: footer;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2rem;
+    background-color: rgb(180, 37, 37);
+    color: white;
 }
-/* #getRecipe{
-    margin-right: 20px;
-} */

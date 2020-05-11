@@ -6,7 +6,7 @@ body{
                         "footer footer footer";
                         
     font-family: 'Roboto', sans-serif;
-    background: rgb(238, 62, 62);
+    background: url("/images/backgroundImage.jpg") repeat;
     
 }
 header{
@@ -32,12 +32,15 @@ header *{
 
 .redButton{
     border: 2px dashed white;
-    background-color: rgb(238, 62, 62);
+    background-color: #ef3e3f;
     cursor: pointer;
     padding: 10px;
     max-width: 200px;
     color: white;
     font-size: 1.5rem;
+}
+.redButton:hover{
+    background-color: #b42525;
 }
 header label{
     margin-right: 20px;
@@ -54,15 +57,15 @@ main{
     grid-area: main;
     display: grid;
     border-radius: 1.2%;
-    margin: 25px 75px;
+    margin: 2% 7%;
     padding: 40px 25px;
     grid-template-columns: 1fr 1fr;
 }
 .recipeDetails{
-   margin-bottom: 15px;
+   margin-bottom: 55px;
 }
 #recipeImage{
-    border: 5px solid rgb(238, 62, 62);
+    border: 5px solid #ef3e3f;
     border-top-left-radius: 2%;
 }
 #recipeName{
@@ -82,10 +85,12 @@ main{
 footer{
     grid-area: footer;
     display: flex;
+    align-items: center;
     justify-content: center;
     font-size: 1.1rem;
     background-color: rgb(180, 37, 37);
     color: white;
+    height: 80px;
 }
 #instructionsList{
     list-style-type: decimal;
@@ -110,5 +115,5 @@ li img{
 }
 .instructions h3, .ingredients h3{
     margin-bottom: 30px;
-    padding: 40px 0 0 20px;
+    padding: 50px 0 0 20px;
 }

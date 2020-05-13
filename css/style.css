@@ -74,7 +74,7 @@ main{
 
 .recipeSidebySide{
     display: flex;
-    text-align: center;
+    text-align: start;
     justify-content: center;
 }
 
@@ -173,10 +173,58 @@ li img{
     }
 }
 @media (max-width: 1375px){
+    
     header .redButton{
         font-size: 1.1rem;
     }
+
+    .Logo{
+        margin-right: 60px;
+    }
+    .recipeSidebySide{
+        margin: 0;
+    }
     .recipeSidebySide:nth-of-type(2){
         flex-direction: column-reverse;
+    }
+    main .redButton{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px){
+    body{
+        font-size: .8rem;
+    }
+    main{
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    #recipeImage{
+        width: 90%;
+        margin: 0;
+    }
+    header{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .Logo{
+        border-bottom: 1px solid #ff6c6c;
+        margin-bottom: 20px;
+    }
+    header .redButton{
+        margin: 20px 0;
+        max-width: 100%;
+        width: 97%;
+    }
+    
+    #food2eat{
+        width: 93%;
+        margin: 0;
+    }
+    footer{
+        font-size: .8rem;
     }
 }
